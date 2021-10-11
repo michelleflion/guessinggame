@@ -1,9 +1,7 @@
-all: README.md
+all: README
 
-README.md: guessinggame.sh
-	touch README.md
-	"# Title of Project: Guessing Game" >> README.md
-	now=$(date)
-	"This README is generated at $now" >> README.md
-	lines=$(wc -l guessinggame.sh)
-	"guessinggame.sh contains $lines lines" >> README.md`
+README: guessinggame.sh
+	echo "# Title of Project: Guessing Game" > README.md
+	echo "This README was written at:" >> README.md
+	date  >> README.md
+	wc -l guessinggame.sh >> README.md
